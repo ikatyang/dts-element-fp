@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create_curried_declarations (normal) 1`] = `
+"declare const append: append_00;
+type append_00 = {
+    <T>(value: T): append_10<T>;
+    <T, U>(value: T, list: List<U>): append_11<T, U>;
+};
+type append_10<T> = {
+    <U>(list: List<U>): append_11<T, U>;
+};
+type append_01<U> = {
+    <T>(value: T): append_11<T, U>;
+};
+type append_11<T, U> = (T | U)[];
+"
+`;
+
+exports[`create_curried_declarations (various) 1`] = `
+"declare const map: map_00;
+type map_00 = {
+    <T, U>(fn: (x: T) => U): map_10<T, U>;
+    <T, U>(fn: (x: T) => U, list: List<T>): map_list_11<U>;
+    <T, U>(fn: (x: T) => U, functor: Functor<T>): map_functor_11<U>;
+};
+type map_10<T, U> = {
+    (list: List<T>): map_list_11<U>;
+    (functor: Functor<T>): map_functor_11<U>;
+};
+type map_list_01<T> = {
+    <U>(fn: (x: T) => U): map_list_11<U>;
+};
+type map_functor_01<T> = {
+    <U>(fn: (x: T) => U): map_functor_11<U>;
+};
+type map_list_11<U> = U[];
+type map_functor_11<U> = Functor<U>;
+"
+`;
+
+exports[`create_curried_interfaces 1`] = `
+"interface CurriedFunction1<T1, R> {
+    (v1: T1): R;
+}
+interface CurriedFunction2<T1, T2, R> {
+    (v1: T1): CurriedFunction1<T2, R>;
+    (v1: T1, v2: T2): R;
+}
+interface CurriedFunction3<T1, T2, T3, R> {
+    (v1: T1): CurriedFunction2<T2, T3, R>;
+    (v1: T1, v2: T2): CurriedFunction1<T3, R>;
+    (v1: T1, v2: T2, v3: T3): R;
+}
+"
+`;

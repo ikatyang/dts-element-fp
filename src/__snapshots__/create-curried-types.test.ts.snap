@@ -1,0 +1,461 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generics + multi-parameters + return-generics should transform correctly with every option 1`] = `
+"type adjust_000 = {
+    <T, U>(fn: Morphism<T, U>, index: number, list: List<T>): adjust_111<T, U>;
+    <T, U>(fn: Morphism<T, U>, index: number): adjust_110<T, U>;
+    <T, U>(fn: Morphism<T, U>, _index: PH, list: List<T>): adjust_101<T, U>;
+    <T, U>(fn: Morphism<T, U>): adjust_100<T, U>;
+    <T>(_fn: PH, index: number, list: List<T>): adjust_011<T>;
+    (_fn: PH, index: number): adjust_010;
+    <$SEL extends \\"111\\">(): <T, U>(fn: Morphism<T, U>, index: number, list: List<T>) => adjust_111<T, U>;
+    <$SEL extends \\"11\\">(): <T, U>(fn: Morphism<T, U>, index: number) => adjust_110<T, U>;
+    <$SEL extends \\"101\\">(): <T, U>(fn: Morphism<T, U>, _index: PH, list: List<T>) => adjust_101<T, U>;
+    <$SEL extends \\"1\\">(): <T, U>(fn: Morphism<T, U>) => adjust_100<T, U>;
+    <$SEL extends \\"011\\">(): <T>(_fn: PH, index: number, list: List<T>) => adjust_011<T>;
+    <$SEL extends \\"01\\">(): (_fn: PH, index: number) => adjust_010;
+    <$SEL extends \\"001\\">(): <T>(_fn: PH, _index: PH, list: List<T>) => adjust_001<T>;
+    <T>(_fn: PH, _index: PH, list: List<T>): adjust_001<T>;
+};
+type adjust_100<T, U> = {
+    (index: number, list: List<T>): adjust_111<T, U>;
+    (index: number): adjust_110<T, U>;
+    <$SEL extends \\"11\\">(): (index: number, list: List<T>) => adjust_111<T, U>;
+    <$SEL extends \\"1\\">(): (index: number) => adjust_110<T, U>;
+    <$SEL extends \\"01\\">(): (_index: PH, list: List<T>) => adjust_101<T, U>;
+    (_index: PH, list: List<T>): adjust_101<T, U>;
+};
+type adjust_010 = {
+    <T, U>(fn: Morphism<T, U>, list: List<T>): adjust_111<T, U>;
+    <T, U>(fn: Morphism<T, U>): adjust_110<T, U>;
+    <$SEL extends \\"11\\">(): <T, U>(fn: Morphism<T, U>, list: List<T>) => adjust_111<T, U>;
+    <$SEL extends \\"1\\">(): <T, U>(fn: Morphism<T, U>) => adjust_110<T, U>;
+    <$SEL extends \\"01\\">(): <T>(_fn: PH, list: List<T>) => adjust_011<T>;
+    <T>(_fn: PH, list: List<T>): adjust_011<T>;
+};
+type adjust_110<T, U> = {
+    (list: List<T>): adjust_111<T, U>;
+};
+type adjust_001<T> = {
+    <U>(fn: Morphism<T, U>, index: number): adjust_111<T, U>;
+    <U>(fn: Morphism<T, U>): adjust_101<T, U>;
+    <$SEL extends \\"11\\">(): <U>(fn: Morphism<T, U>, index: number) => adjust_111<T, U>;
+    <$SEL extends \\"1\\">(): <U>(fn: Morphism<T, U>) => adjust_101<T, U>;
+    <$SEL extends \\"01\\">(): (_fn: PH, index: number) => adjust_011<T>;
+    (_fn: PH, index: number): adjust_011<T>;
+};
+type adjust_101<T, U> = {
+    (index: number): adjust_111<T, U>;
+};
+type adjust_011<T> = {
+    <U>(fn: Morphism<T, U>): adjust_111<T, U>;
+};
+type adjust_111<T, U> = (T | U)[];
+"
+`;
+
+exports[`generics + multi-parameters + return-generics should transform correctly with placeholder 1`] = `
+"type adjust_000 = {
+    <T, U>(fn: Morphism<T, U>, index: number, list: List<T>): adjust_111<T, U>;
+    <T, U>(fn: Morphism<T, U>, index: number): adjust_110<T, U>;
+    <T, U>(fn: Morphism<T, U>, _index: PH, list: List<T>): adjust_101<T, U>;
+    <T, U>(fn: Morphism<T, U>): adjust_100<T, U>;
+    <T>(_fn: PH, index: number, list: List<T>): adjust_011<T>;
+    (_fn: PH, index: number): adjust_010;
+    <T>(_fn: PH, _index: PH, list: List<T>): adjust_001<T>;
+};
+type adjust_100<T, U> = {
+    (index: number, list: List<T>): adjust_111<T, U>;
+    (index: number): adjust_110<T, U>;
+    (_index: PH, list: List<T>): adjust_101<T, U>;
+};
+type adjust_010 = {
+    <T, U>(fn: Morphism<T, U>, list: List<T>): adjust_111<T, U>;
+    <T, U>(fn: Morphism<T, U>): adjust_110<T, U>;
+    <T>(_fn: PH, list: List<T>): adjust_011<T>;
+};
+type adjust_110<T, U> = {
+    (list: List<T>): adjust_111<T, U>;
+};
+type adjust_001<T> = {
+    <U>(fn: Morphism<T, U>, index: number): adjust_111<T, U>;
+    <U>(fn: Morphism<T, U>): adjust_101<T, U>;
+    (_fn: PH, index: number): adjust_011<T>;
+};
+type adjust_101<T, U> = {
+    (index: number): adjust_111<T, U>;
+};
+type adjust_011<T> = {
+    <U>(fn: Morphism<T, U>): adjust_111<T, U>;
+};
+type adjust_111<T, U> = (T | U)[];
+"
+`;
+
+exports[`generics + multi-parameters + return-generics should transform correctly with selectable 1`] = `
+"type adjust_000 = {
+    <T, U>(fn: Morphism<T, U>, index: number, list: List<T>): adjust_111<T, U>;
+    <T, U>(fn: Morphism<T, U>, index: number): adjust_110<T, U>;
+    <$SEL extends \\"111\\">(): <T, U>(fn: Morphism<T, U>, index: number, list: List<T>) => adjust_111<T, U>;
+    <$SEL extends \\"11\\">(): <T, U>(fn: Morphism<T, U>, index: number) => adjust_110<T, U>;
+    <$SEL extends \\"1\\">(): <T, U>(fn: Morphism<T, U>) => adjust_100<T, U>;
+    <T, U>(fn: Morphism<T, U>): adjust_100<T, U>;
+};
+type adjust_100<T, U> = {
+    (index: number, list: List<T>): adjust_111<T, U>;
+    <$SEL extends \\"11\\">(): (index: number, list: List<T>) => adjust_111<T, U>;
+    <$SEL extends \\"1\\">(): (index: number) => adjust_110<T, U>;
+    (index: number): adjust_110<T, U>;
+};
+type adjust_010 = {
+    <T, U>(fn: Morphism<T, U>, list: List<T>): adjust_111<T, U>;
+    <$SEL extends \\"11\\">(): <T, U>(fn: Morphism<T, U>, list: List<T>) => adjust_111<T, U>;
+    <$SEL extends \\"1\\">(): <T, U>(fn: Morphism<T, U>) => adjust_110<T, U>;
+    <T, U>(fn: Morphism<T, U>): adjust_110<T, U>;
+};
+type adjust_110<T, U> = {
+    (list: List<T>): adjust_111<T, U>;
+};
+type adjust_001<T> = {
+    <U>(fn: Morphism<T, U>, index: number): adjust_111<T, U>;
+    <$SEL extends \\"11\\">(): <U>(fn: Morphism<T, U>, index: number) => adjust_111<T, U>;
+    <$SEL extends \\"1\\">(): <U>(fn: Morphism<T, U>) => adjust_101<T, U>;
+    <U>(fn: Morphism<T, U>): adjust_101<T, U>;
+};
+type adjust_101<T, U> = {
+    (index: number): adjust_111<T, U>;
+};
+type adjust_011<T> = {
+    <U>(fn: Morphism<T, U>): adjust_111<T, U>;
+};
+type adjust_111<T, U> = (T | U)[];
+"
+`;
+
+exports[`generics + multi-parameters + return-generics should transform correctly without any options 1`] = `
+"type adjust_000 = {
+    <T, U>(fn: Morphism<T, U>, index: number, list: List<T>): adjust_111<T, U>;
+    <T, U>(fn: Morphism<T, U>, index: number): adjust_110<T, U>;
+    <T, U>(fn: Morphism<T, U>): adjust_100<T, U>;
+};
+type adjust_100<T, U> = {
+    (index: number, list: List<T>): adjust_111<T, U>;
+    (index: number): adjust_110<T, U>;
+};
+type adjust_010 = {
+    <T, U>(fn: Morphism<T, U>, list: List<T>): adjust_111<T, U>;
+    <T, U>(fn: Morphism<T, U>): adjust_110<T, U>;
+};
+type adjust_110<T, U> = {
+    (list: List<T>): adjust_111<T, U>;
+};
+type adjust_001<T> = {
+    <U>(fn: Morphism<T, U>, index: number): adjust_111<T, U>;
+    <U>(fn: Morphism<T, U>): adjust_101<T, U>;
+};
+type adjust_101<T, U> = {
+    (index: number): adjust_111<T, U>;
+};
+type adjust_011<T> = {
+    <U>(fn: Morphism<T, U>): adjust_111<T, U>;
+};
+type adjust_111<T, U> = (T | U)[];
+"
+`;
+
+exports[`generics + multi-parameters should transform correctly with every option 1`] = `
+"type all_00 = {
+    <T>(fn: Predicate<T>, list: List<T>): all_11;
+    <T>(fn: Predicate<T>): all_10<T>;
+    <$SEL extends \\"11\\">(): <T>(fn: Predicate<T>, list: List<T>) => all_11;
+    <$SEL extends \\"1\\">(): <T>(fn: Predicate<T>) => all_10<T>;
+    <$SEL extends \\"01\\">(): <T>(_fn: PH, list: List<T>) => all_01<T>;
+    <T>(_fn: PH, list: List<T>): all_01<T>;
+};
+type all_10<T> = {
+    (list: List<T>): all_11;
+};
+type all_01<T> = {
+    (fn: Predicate<T>): all_11;
+};
+type all_11 = boolean;
+"
+`;
+
+exports[`generics + multi-parameters should transform correctly with placeholder 1`] = `
+"type all_00 = {
+    <T>(fn: Predicate<T>, list: List<T>): all_11;
+    <T>(fn: Predicate<T>): all_10<T>;
+    <T>(_fn: PH, list: List<T>): all_01<T>;
+};
+type all_10<T> = {
+    (list: List<T>): all_11;
+};
+type all_01<T> = {
+    (fn: Predicate<T>): all_11;
+};
+type all_11 = boolean;
+"
+`;
+
+exports[`generics + multi-parameters should transform correctly with selectable 1`] = `
+"type all_00 = {
+    <T>(fn: Predicate<T>, list: List<T>): all_11;
+    <$SEL extends \\"11\\">(): <T>(fn: Predicate<T>, list: List<T>) => all_11;
+    <$SEL extends \\"1\\">(): <T>(fn: Predicate<T>) => all_10<T>;
+    <T>(fn: Predicate<T>): all_10<T>;
+};
+type all_10<T> = {
+    (list: List<T>): all_11;
+};
+type all_01<T> = {
+    (fn: Predicate<T>): all_11;
+};
+type all_11 = boolean;
+"
+`;
+
+exports[`generics + multi-parameters should transform correctly without any options 1`] = `
+"type all_00 = {
+    <T>(fn: Predicate<T>, list: List<T>): all_11;
+    <T>(fn: Predicate<T>): all_10<T>;
+};
+type all_10<T> = {
+    (list: List<T>): all_11;
+};
+type all_01<T> = {
+    (fn: Predicate<T>): all_11;
+};
+type all_11 = boolean;
+"
+`;
+
+exports[`non-generics should transform correctly with every option 1`] = `
+"type clamp_000 = {
+    (min: number, max: number, value: number): clamp_111;
+    (min: number, max: number): clamp_110;
+    (min: number, _max: PH, value: number): clamp_101;
+    (min: number): clamp_100;
+    (_min: PH, max: number, value: number): clamp_011;
+    (_min: PH, max: number): clamp_010;
+    <$SEL extends \\"111\\">(): (min: number, max: number, value: number) => clamp_111;
+    <$SEL extends \\"11\\">(): (min: number, max: number) => clamp_110;
+    <$SEL extends \\"101\\">(): (min: number, _max: PH, value: number) => clamp_101;
+    <$SEL extends \\"1\\">(): (min: number) => clamp_100;
+    <$SEL extends \\"011\\">(): (_min: PH, max: number, value: number) => clamp_011;
+    <$SEL extends \\"01\\">(): (_min: PH, max: number) => clamp_010;
+    <$SEL extends \\"001\\">(): (_min: PH, _max: PH, value: number) => clamp_001;
+    (_min: PH, _max: PH, value: number): clamp_001;
+};
+type clamp_100 = {
+    (max: number, value: number): clamp_111;
+    (max: number): clamp_110;
+    <$SEL extends \\"11\\">(): (max: number, value: number) => clamp_111;
+    <$SEL extends \\"1\\">(): (max: number) => clamp_110;
+    <$SEL extends \\"01\\">(): (_max: PH, value: number) => clamp_101;
+    (_max: PH, value: number): clamp_101;
+};
+type clamp_010 = {
+    (min: number, value: number): clamp_111;
+    (min: number): clamp_110;
+    <$SEL extends \\"11\\">(): (min: number, value: number) => clamp_111;
+    <$SEL extends \\"1\\">(): (min: number) => clamp_110;
+    <$SEL extends \\"01\\">(): (_min: PH, value: number) => clamp_011;
+    (_min: PH, value: number): clamp_011;
+};
+type clamp_110 = {
+    (value: number): clamp_111;
+};
+type clamp_001 = {
+    (min: number, max: number): clamp_111;
+    (min: number): clamp_101;
+    <$SEL extends \\"11\\">(): (min: number, max: number) => clamp_111;
+    <$SEL extends \\"1\\">(): (min: number) => clamp_101;
+    <$SEL extends \\"01\\">(): (_min: PH, max: number) => clamp_011;
+    (_min: PH, max: number): clamp_011;
+};
+type clamp_101 = {
+    (max: number): clamp_111;
+};
+type clamp_011 = {
+    (min: number): clamp_111;
+};
+type clamp_111 = number;
+"
+`;
+
+exports[`non-generics should transform correctly with placeholder 1`] = `
+"type clamp_000 = {
+    (min: number, max: number, value: number): clamp_111;
+    (min: number, max: number): clamp_110;
+    (min: number, _max: PH, value: number): clamp_101;
+    (min: number): clamp_100;
+    (_min: PH, max: number, value: number): clamp_011;
+    (_min: PH, max: number): clamp_010;
+    (_min: PH, _max: PH, value: number): clamp_001;
+};
+type clamp_100 = {
+    (max: number, value: number): clamp_111;
+    (max: number): clamp_110;
+    (_max: PH, value: number): clamp_101;
+};
+type clamp_010 = {
+    (min: number, value: number): clamp_111;
+    (min: number): clamp_110;
+    (_min: PH, value: number): clamp_011;
+};
+type clamp_110 = {
+    (value: number): clamp_111;
+};
+type clamp_001 = {
+    (min: number, max: number): clamp_111;
+    (min: number): clamp_101;
+    (_min: PH, max: number): clamp_011;
+};
+type clamp_101 = {
+    (max: number): clamp_111;
+};
+type clamp_011 = {
+    (min: number): clamp_111;
+};
+type clamp_111 = number;
+"
+`;
+
+exports[`non-generics should transform correctly with selectable 1`] = `
+"type clamp_000 = {
+    (min: number, max: number, value: number): clamp_111;
+    (min: number, max: number): clamp_110;
+    <$SEL extends \\"111\\">(): (min: number, max: number, value: number) => clamp_111;
+    <$SEL extends \\"11\\">(): (min: number, max: number) => clamp_110;
+    <$SEL extends \\"1\\">(): (min: number) => clamp_100;
+    (min: number): clamp_100;
+};
+type clamp_100 = {
+    (max: number, value: number): clamp_111;
+    <$SEL extends \\"11\\">(): (max: number, value: number) => clamp_111;
+    <$SEL extends \\"1\\">(): (max: number) => clamp_110;
+    (max: number): clamp_110;
+};
+type clamp_010 = {
+    (min: number, value: number): clamp_111;
+    <$SEL extends \\"11\\">(): (min: number, value: number) => clamp_111;
+    <$SEL extends \\"1\\">(): (min: number) => clamp_110;
+    (min: number): clamp_110;
+};
+type clamp_110 = {
+    (value: number): clamp_111;
+};
+type clamp_001 = {
+    (min: number, max: number): clamp_111;
+    <$SEL extends \\"11\\">(): (min: number, max: number) => clamp_111;
+    <$SEL extends \\"1\\">(): (min: number) => clamp_101;
+    (min: number): clamp_101;
+};
+type clamp_101 = {
+    (max: number): clamp_111;
+};
+type clamp_011 = {
+    (min: number): clamp_111;
+};
+type clamp_111 = number;
+"
+`;
+
+exports[`non-generics should transform correctly without any options 1`] = `
+"type clamp_000 = {
+    (min: number, max: number, value: number): clamp_111;
+    (min: number, max: number): clamp_110;
+    (min: number): clamp_100;
+};
+type clamp_100 = {
+    (max: number, value: number): clamp_111;
+    (max: number): clamp_110;
+};
+type clamp_010 = {
+    (min: number, value: number): clamp_111;
+    (min: number): clamp_110;
+};
+type clamp_110 = {
+    (value: number): clamp_111;
+};
+type clamp_001 = {
+    (min: number, max: number): clamp_111;
+    (min: number): clamp_101;
+};
+type clamp_101 = {
+    (max: number): clamp_111;
+};
+type clamp_011 = {
+    (min: number): clamp_111;
+};
+type clamp_111 = number;
+"
+`;
+
+exports[`type-predicate should transform correctly with every option 1`] = `
+"type is_00 = {
+    <T>(constructor: Constructor<T>, value: any): value is T;
+    <T>(constructor: Constructor<T>): is_10<T>;
+    <$SEL extends \\"11\\">(): <T>(constructor: Constructor<T>, value: any) => value is T;
+    <$SEL extends \\"1\\">(): <T>(constructor: Constructor<T>) => is_10<T>;
+    <$SEL extends \\"01\\">(): (_constructor: PH, value: any) => is_01;
+    (_constructor: PH, value: any): is_01;
+};
+type is_10<T> = {
+    (value: any): value is T;
+};
+type is_01 = {
+    <T>(constructor: Constructor<T>): is_11<T>;
+};
+type is_11<T> = boolean;
+"
+`;
+
+exports[`type-predicate should transform correctly with placeholder 1`] = `
+"type is_00 = {
+    <T>(constructor: Constructor<T>, value: any): value is T;
+    <T>(constructor: Constructor<T>): is_10<T>;
+    (_constructor: PH, value: any): is_01;
+};
+type is_10<T> = {
+    (value: any): value is T;
+};
+type is_01 = {
+    <T>(constructor: Constructor<T>): is_11<T>;
+};
+type is_11<T> = boolean;
+"
+`;
+
+exports[`type-predicate should transform correctly with selectable 1`] = `
+"type is_00 = {
+    <T>(constructor: Constructor<T>, value: any): value is T;
+    <$SEL extends \\"11\\">(): <T>(constructor: Constructor<T>, value: any) => value is T;
+    <$SEL extends \\"1\\">(): <T>(constructor: Constructor<T>) => is_10<T>;
+    <T>(constructor: Constructor<T>): is_10<T>;
+};
+type is_10<T> = {
+    (value: any): value is T;
+};
+type is_01 = {
+    <T>(constructor: Constructor<T>): is_11<T>;
+};
+type is_11<T> = boolean;
+"
+`;
+
+exports[`type-predicate should transform correctly without any options 1`] = `
+"type is_00 = {
+    <T>(constructor: Constructor<T>, value: any): value is T;
+    <T>(constructor: Constructor<T>): is_10<T>;
+};
+type is_10<T> = {
+    (value: any): value is T;
+};
+type is_01 = {
+    <T>(constructor: Constructor<T>): is_11<T>;
+};
+type is_11<T> = boolean;
+"
+`;

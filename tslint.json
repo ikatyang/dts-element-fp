@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "tslint-config-ikatyang",
+    "tslint-config-prettier-ext",
+    "tslint-plugin-prettier",
+    "prettier-config-ikatyang/tslint"
+  ],
+  "rules": {
+    "no-unnecessary-type-assertion": false,
+    "no-inferred-empty-object-type": false
+  }
+}
