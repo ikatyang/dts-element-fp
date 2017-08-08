@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<A, B extends A, C extends A, D, E> 1`] = `
+Object {
+  "A": Array [
+    "A",
+  ],
+  "B": Array [
+    "B",
+    "A",
+  ],
+  "C": Array [
+    "C",
+    "A",
+  ],
+  "D": Array [
+    "D",
+  ],
+  "E": Array [
+    "E",
+  ],
+}
+`;
+
+exports[`<A, B extends A, C extends B, D, E> 1`] = `
+Object {
+  "A": Array [
+    "A",
+  ],
+  "B": Array [
+    "B",
+    "A",
+  ],
+  "C": Array [
+    "C",
+    "B",
+    "A",
+  ],
+  "D": Array [
+    "D",
+  ],
+  "E": Array [
+    "E",
+  ],
+}
+`;
