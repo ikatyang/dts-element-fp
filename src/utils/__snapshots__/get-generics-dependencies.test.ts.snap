@@ -21,3 +21,26 @@ Object {
   ],
 }
 `;
+
+exports[`<A, B extends A, C extends B, D, E> 1`] = `
+Object {
+  "A": Array [
+    "A",
+  ],
+  "B": Array [
+    "B",
+    "A",
+  ],
+  "C": Array [
+    "C",
+    "B",
+    "A",
+  ],
+  "D": Array [
+    "D",
+  ],
+  "E": Array [
+    "E",
+  ],
+}
+`;

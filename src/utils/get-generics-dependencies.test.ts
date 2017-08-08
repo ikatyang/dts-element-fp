@@ -2,15 +2,12 @@ import * as dts from 'dts-element';
 import { get_generics_dependencies } from './get-generics-dependencies';
 
 test_case(test, '<A, B extends A, C extends A, D, E>');
+test_case(test, '<A, B extends A, C extends B, D, E>');
 
 function test_case(tester: typeof test, generics: string) {
   tester(generics, () => {
     expect(
-      emit_generics_dependencies(
-        parse_generices(`
-          <A, B extends A, C extends A, D, E>
-        `),
-      ),
+      emit_generics_dependencies(parse_generices(generics)),
     ).toMatchSnapshot();
   });
 }
