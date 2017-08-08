@@ -12,6 +12,7 @@ import {
   create_selectable_signatures,
   CreateSelectableSignaturesOptions,
 } from './utils/create-selectable-signatures';
+import { get_generics_dependencies } from './utils/get-generics-dependencies';
 import { has } from './utils/has';
 import { push_signatures } from './utils/push-signatures';
 
@@ -62,15 +63,7 @@ export function create_curried_types(
     }),
   );
 
-  const generics_dependencies = generics.map(generic => [
-    generic,
-    ...generics.filter(current_generic =>
-      has(generic, {
-        kind: dts.ElementKind.GeneralType,
-        name: current_generic.name,
-      }),
-    ),
-  ]);
+  const generics_dependencies = get_generics_dependencies(generics);
 
   const sort_generics = (the_generics: dts.IGenericDeclaration[]) =>
     the_generics
