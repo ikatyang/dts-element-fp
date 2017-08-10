@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import { match } from './match';
 
-// tslint:disable-next-line:no-unused-variable
+// tslint:disable-next-line:no-unused-variable no-duplicate-imports
 import { CurriedFunction2 } from 'ramda';
 
 /**

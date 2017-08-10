@@ -2,7 +2,7 @@ import * as dts from 'dts-element';
 import * as R from 'ramda';
 import { has } from './has';
 
-// tslint:disable-next-line:no-unused-variable
+// tslint:disable-next-line:no-unused-variable no-duplicate-imports
 import { IGenericDeclaration } from 'dts-element';
 
 export const get_generics_dependencies = (
