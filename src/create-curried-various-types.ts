@@ -10,6 +10,7 @@ import {
 } from './utils/constants';
 import { create_masks } from './utils/create-masks';
 import { create_selectable_signatures } from './utils/create-selectable-signatures';
+import { has_same_parameter } from './utils/has-same-parameter';
 
 /**
  * @hidden
@@ -54,16 +55,18 @@ export function create_various_curried_types(
 
   const masks = create_masks(parameters_length);
 
-  const types_parameters = keys.reduce<dts.IParameterDeclaration[][]>(
-    (reduced, key) => [...reduced, types[key].parameters!],
+  const function_types = keys.reduce<dts.IFunctionType[]>(
+    (reduced, key) => [...reduced, types[key]],
     [],
   );
 
   const non_conflicts = R.repeat(0, parameters_length).map((_, index) => {
-    const parameter = types_parameters[0][index];
-    return types_parameters
+    const main_function_type = function_types[0];
+    return function_types
       .slice(1)
-      .every(type_parameters => R.equals(type_parameters[index], parameter));
+      .every(current_function_type =>
+        has_same_parameter(main_function_type, current_function_type, index),
+      );
   });
 
   const conflict_declarations: dts.ITypeDeclaration[][] = [];
