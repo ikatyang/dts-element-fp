@@ -29,6 +29,37 @@ it('should throw error if those function types have different length', () => {
   ).toThrowError();
 });
 
+describe('merge-non-conflicts', () => {
+  it('should return correctly with mergable types', () => {
+    expect(
+      dts.emit(
+        create_various_curried_types(
+          '$',
+          parse_types(`
+            function list<T, U extends List<T>>(fn: (x: T) => T, container: U): U;
+            function object<T, U extends Dictionary<T>>(fn: (x: T) => T, container: U): U;
+          `),
+        ),
+      ),
+    ).toMatchSnapshot();
+  });
+  it('should return correctly with un-mergable types', () => {
+    expect(
+      dts.emit(
+        create_various_curried_types(
+          '$',
+          parse_types(`
+            function list<T, U extends List<T>>(fn: (x: T) => T, container: U): U;
+            function object<X, Y extends Dictionary<X>>(fn: (x: X) => X, container: Y): Y;
+          `),
+        ),
+      ),
+    ).toMatchSnapshot();
+  });
+});
+
+it('should merge correctly with ');
+
 Object.keys(test_cases).forEach(case_name => {
   describe(case_name, () => {
     it('should transform correctly without any options', () => {
