@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.2"></a>
+## [1.0.2](https://github.com/ikatyang/dts-element-fp/compare/v1.0.1...v1.0.2) (2017-08-13)
+
+
+### Bug Fixes
+
+* **various:** unexpected merge conflict ([#13](https://github.com/ikatyang/dts-element-fp/issues/13)) ([cef0277](https://github.com/ikatyang/dts-element-fp/commit/cef0277))
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/ikatyang/dts-element-fp/compare/v1.0.0...v1.0.1) (2017-08-08)
 

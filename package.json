@@ -1,6 +1,6 @@
 {
   "name": "dts-element-fp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "typescript definition generator for functional programming",
   "keywords": [
     "dts-element",
