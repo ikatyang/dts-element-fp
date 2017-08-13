@@ -144,6 +144,51 @@ type $_list_1<T> = T | undefined;
 "
 `;
 
+exports[`merge-non-conflicts should return correctly with mergable types 1`] = `
+"type $_00 = {
+    <T, U extends List<T>>(fn: (x: T) => T, container: U): $_list_11<T, U>;
+    <T, U extends Dictionary<T>>(fn: (x: T) => T, container: U): $_object_11<T, U>;
+    <T>(fn: (x: T) => T): $_10<T>;
+};
+type $_10<T> = {
+    <U extends List<T>>(container: U): $_list_11<T, U>;
+    <U extends Dictionary<T>>(container: U): $_object_11<T, U>;
+};
+type $_list_01<T, U extends List<T>> = {
+    (fn: (x: T) => T): $_list_11<T, U>;
+};
+type $_object_01<T, U extends Dictionary<T>> = {
+    (fn: (x: T) => T): $_object_11<T, U>;
+};
+type $_list_11<T, U extends List<T>> = U;
+type $_object_11<T, U extends Dictionary<T>> = U;
+"
+`;
+
+exports[`merge-non-conflicts should return correctly with un-mergable types 1`] = `
+"type $_00 = {
+    <T, U extends List<T>>(fn: (x: T) => T, container: U): $_list_11<T, U>;
+    <T>(fn: (x: T) => T): $_list_10<T>;
+    <X, Y extends Dictionary<X>>(fn: (x: X) => X, container: Y): $_object_11<X, Y>;
+    <X>(fn: (x: X) => X): $_object_10<X>;
+};
+type $_list_10<T> = {
+    <U extends List<T>>(container: U): $_list_11<T, U>;
+};
+type $_object_10<X> = {
+    <Y extends Dictionary<X>>(container: Y): $_object_11<X, Y>;
+};
+type $_list_01<T, U extends List<T>> = {
+    (fn: (x: T) => T): $_list_11<T, U>;
+};
+type $_object_01<X, Y extends Dictionary<X>> = {
+    (fn: (x: X) => X): $_object_11<X, Y>;
+};
+type $_list_11<T, U extends List<T>> = U;
+type $_object_11<X, Y extends Dictionary<X>> = Y;
+"
+`;
+
 exports[`non-generics should transform correctly with every option 1`] = `
 "type $_00 = {
     (a: number, b: number): $_number_11;
