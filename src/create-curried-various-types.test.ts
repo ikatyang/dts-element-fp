@@ -58,8 +58,6 @@ describe('merge-non-conflicts', () => {
   });
 });
 
-it('should merge correctly with ');
-
 Object.keys(test_cases).forEach(case_name => {
   describe(case_name, () => {
     it('should transform correctly without any options', () => {
