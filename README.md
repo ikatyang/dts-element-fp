@@ -55,9 +55,6 @@ dts.emit(curried_declarations_normal); /*=>
   type append_10<T> = {
       <U>(list: List<U>): append_11<T, U>;
   };
-  type append_01<U> = {
-      <T>(value: T): append_11<T, U>;
-  };
   type append_11<T, U> = (T | U)[];
 */
 
@@ -79,12 +76,6 @@ dts.emit(curried_declarations_various); /*=>
   type map_10<T, U> = {
       (list: List<T>): map_list_11<U>;
       (functor: Functor<T>): map_functor_11<U>;
-  };
-  type map_list_01<T> = {
-      <U>(fn: (x: T) => U): map_list_11<U>;
-  };
-  type map_functor_01<T> = {
-      <U>(fn: (x: T) => U): map_functor_11<U>;
   };
   type map_list_11<U> = U[];
   type map_functor_11<U> = Functor<U>;

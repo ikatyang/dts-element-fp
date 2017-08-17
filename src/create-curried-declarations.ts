@@ -4,7 +4,10 @@ import {
   CreateCurriedDeclarationsOptions,
 } from './create-curried-types';
 import { create_various_curried_types } from './create-curried-various-types';
-import { get_placeholder_type_default } from './utils/constants';
+import {
+  get_placeholder_type_default,
+  placeholder_default,
+} from './utils/constants';
 import { sort_signatures } from './utils/sort-signatures';
 
 export function create_curried_declarations(
@@ -23,7 +26,10 @@ export function create_curried_declarations(
       );
 
   // istanbul ignore next
-  const { get_placeholder_type = get_placeholder_type_default } = options;
+  const {
+    get_placeholder_type = get_placeholder_type_default,
+    placeholder = placeholder_default,
+  } = options;
 
   const is_placeholder = (value: dts.IType) =>
     dts.is_general_type(value) && value.name === get_placeholder_type();
@@ -55,6 +61,11 @@ export function create_curried_declarations(
         name: sorted_type_declarations[0].name,
       }),
     }),
-    ...sorted_type_declarations,
+    ...sorted_type_declarations.filter(type_declaration => {
+      if (!placeholder) {
+        return /_1*?0*?$/.test(type_declaration.name);
+      }
+      return true;
+    }),
   ];
 }
