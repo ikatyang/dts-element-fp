@@ -1,5 +1,6 @@
 export const selectable_default = false;
 export const placeholder_default = false;
+export const inline_return_type_default = false;
 
 export const get_interface_name_default = (index: number) =>
   `CurriedFunction${index + 1}`;

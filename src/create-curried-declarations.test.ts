@@ -39,6 +39,18 @@ it('should omit unnecessary types with placeholder = false and type = Record<str
   ).toMatchSnapshot();
 });
 
+it('should inline return type correctly with inline_return_type = true and type = FunctionType', () => {
+  expect(
+    emit_curried_declarations(test_cases.normal, { inline_return_type: true }),
+  ).toMatchSnapshot();
+});
+
+it('should inline return type correctly with inline_return_type = true and type = Record<string, FunctionType>', () => {
+  expect(
+    emit_curried_declarations(test_cases.various, { inline_return_type: true }),
+  ).toMatchSnapshot();
+});
+
 function emit_curried_declarations(
   test_case: string,
   raw_options: CreateCurriedDeclarationsOptions & {
