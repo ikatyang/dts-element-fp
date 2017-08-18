@@ -110,9 +110,6 @@ dts.emit(curried_declarations_normal); <span class="hljs-comment">/*=&gt;
   type append_10&lt;T&gt; = {
       &lt;U&gt;(list: List&lt;U&gt;): append_11&lt;T, U&gt;;
   };
-  type append_01&lt;U&gt; = {
-      &lt;T&gt;(value: T): append_11&lt;T, U&gt;;
-  };
   type append_11&lt;T, U&gt; = (T | U)[];
 */</span>
 
@@ -134,12 +131,6 @@ dts.emit(curried_declarations_various); <span class="hljs-comment">/*=&gt;
   type map_10&lt;T, U&gt; = {
       (list: List&lt;T&gt;): map_list_11&lt;U&gt;;
       (functor: Functor&lt;T&gt;): map_functor_11&lt;U&gt;;
-  };
-  type map_list_01&lt;T&gt; = {
-      &lt;U&gt;(fn: (x: T) =&gt; U): map_list_11&lt;U&gt;;
-  };
-  type map_functor_01&lt;T&gt; = {
-      &lt;U&gt;(fn: (x: T) =&gt; U): map_functor_11&lt;U&gt;;
   };
   type map_list_11&lt;U&gt; = U[];
   type map_functor_11&lt;U&gt; = Functor&lt;U&gt;;
