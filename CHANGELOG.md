@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/ikatyang/dts-element-fp/compare/v1.0.2...v1.1.0) (2017-08-18)
+
+
+### Bug Fixes
+
+* remove unnecessary types for `placeholder: false` ([#18](https://github.com/ikatyang/dts-element-fp/issues/18)) ([4b5034d](https://github.com/ikatyang/dts-element-fp/commit/4b5034d))
+
+
+### Features
+
+* add option to inline the final return type ([#19](https://github.com/ikatyang/dts-element-fp/issues/19)) ([075d541](https://github.com/ikatyang/dts-element-fp/commit/075d541))
+
+
+
 <a name="1.0.2"></a>
 ## [1.0.2](https://github.com/ikatyang/dts-element-fp/compare/v1.0.1...v1.0.2) (2017-08-13)
 
