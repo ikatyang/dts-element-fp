@@ -1,5 +1,88 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`should inline return type correctly with inline_return_type = true and type = FunctionType 1`] = `
+"declare const $: $_000;
+type $_000 = {
+    <T, U>(fn: Morphism<T, U>): $_100<T, U>;
+    (_fn: PH, index: number): $_010;
+    <T, U>(fn: Morphism<T, U>, index: number): $_110<T, U>;
+    <T>(_fn: PH, _index: PH, list: List<T>): $_001<T>;
+    <T>(_fn: PH, index: number, list: List<T>): $_011<T>;
+    <T, U>(fn: Morphism<T, U>, _index: PH, list: List<T>): $_101<T, U>;
+    <$SEL extends \\"1\\">(): <T, U>(fn: Morphism<T, U>) => $_100<T, U>;
+    <$SEL extends \\"01\\">(): (_fn: PH, index: number) => $_010;
+    <$SEL extends \\"11\\">(): <T, U>(fn: Morphism<T, U>, index: number) => $_110<T, U>;
+    <$SEL extends \\"001\\">(): <T>(_fn: PH, _index: PH, list: List<T>) => $_001<T>;
+    <$SEL extends \\"011\\">(): <T>(_fn: PH, index: number, list: List<T>) => $_011<T>;
+    <$SEL extends \\"101\\">(): <T, U>(fn: Morphism<T, U>, _index: PH, list: List<T>) => $_101<T, U>;
+    <$SEL extends \\"111\\">(): <T, U>(fn: Morphism<T, U>, index: number, list: List<T>) => (T | U)[];
+    <T, U>(fn: Morphism<T, U>, index: number, list: List<T>): (T | U)[];
+};
+type $_100<T, U> = {
+    (index: number): $_110<T, U>;
+    (_index: PH, list: List<T>): $_101<T, U>;
+    <$SEL extends \\"1\\">(): (index: number) => $_110<T, U>;
+    <$SEL extends \\"01\\">(): (_index: PH, list: List<T>) => $_101<T, U>;
+    <$SEL extends \\"11\\">(): (index: number, list: List<T>) => (T | U)[];
+    (index: number, list: List<T>): (T | U)[];
+};
+type $_010 = {
+    <T, U>(fn: Morphism<T, U>): $_110<T, U>;
+    <T>(_fn: PH, list: List<T>): $_011<T>;
+    <$SEL extends \\"1\\">(): <T, U>(fn: Morphism<T, U>) => $_110<T, U>;
+    <$SEL extends \\"01\\">(): <T>(_fn: PH, list: List<T>) => $_011<T>;
+    <$SEL extends \\"11\\">(): <T, U>(fn: Morphism<T, U>, list: List<T>) => (T | U)[];
+    <T, U>(fn: Morphism<T, U>, list: List<T>): (T | U)[];
+};
+type $_110<T, U> = {
+    (list: List<T>): (T | U)[];
+};
+type $_001<T> = {
+    <U>(fn: Morphism<T, U>): $_101<T, U>;
+    (_fn: PH, index: number): $_011<T>;
+    <$SEL extends \\"1\\">(): <U>(fn: Morphism<T, U>) => $_101<T, U>;
+    <$SEL extends \\"01\\">(): (_fn: PH, index: number) => $_011<T>;
+    <$SEL extends \\"11\\">(): <U>(fn: Morphism<T, U>, index: number) => (T | U)[];
+    <U>(fn: Morphism<T, U>, index: number): (T | U)[];
+};
+type $_101<T, U> = {
+    (index: number): (T | U)[];
+};
+type $_011<T> = {
+    <U>(fn: Morphism<T, U>): (T | U)[];
+};
+"
+`;
+
+exports[`should inline return type correctly with inline_return_type = true and type = Record<string, FunctionType> 1`] = `
+"declare const $: $_00;
+type $_00 = {
+    <T, U>(fn: Morphism<T, U>): $_10<T, U>;
+    <T>(_fn: PH, list: List<T>): $_list_01<T>;
+    <T>(_fn: PH, functor: Functor<T>): $_functor_01<T>;
+    <T, U>(fn: Morphism<T, U>, list: List<T>): U[];
+    <$SEL extends \\"1\\">(): <T, U>(fn: Morphism<T, U>) => $_10<T, U>;
+    <$SEL extends \\"01\\", $KIND extends \\"list\\">(): <T>(_fn: PH, list: List<T>) => $_list_01<T>;
+    <$SEL extends \\"01\\", $KIND extends \\"functor\\">(): <T>(_fn: PH, functor: Functor<T>) => $_functor_01<T>;
+    <$SEL extends \\"11\\", $KIND extends \\"list\\">(): <T, U>(fn: Morphism<T, U>, list: List<T>) => U[];
+    <$SEL extends \\"11\\", $KIND extends \\"functor\\">(): <T, U>(fn: Morphism<T, U>, functor: Functor<T>) => Functor<U>;
+    <T, U>(fn: Morphism<T, U>, functor: Functor<T>): Functor<U>;
+};
+type $_10<T, U> = {
+    (list: List<T>): U[];
+    <$SEL extends \\"1\\", $KIND extends \\"list\\">(): (list: List<T>) => U[];
+    <$SEL extends \\"1\\", $KIND extends \\"functor\\">(): (functor: Functor<T>) => Functor<U>;
+    (functor: Functor<T>): Functor<U>;
+};
+type $_list_01<T> = {
+    <U>(fn: Morphism<T, U>): U[];
+};
+type $_functor_01<T> = {
+    <U>(fn: Morphism<T, U>): Functor<U>;
+};
+"
+`;
+
 exports[`should omit unnecessary types with placeholder = false and type = FunctionType 1`] = `
 "declare const $: $_000;
 type $_000 = {

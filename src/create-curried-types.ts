@@ -4,6 +4,7 @@ import {
   get_function_parameter_placeholder_name_default,
   get_function_type_name_default,
   get_placeholder_type_default,
+  inline_return_type_default,
   placeholder_default,
   selectable_default,
 } from './utils/constants';
@@ -23,6 +24,7 @@ export interface CreateCurriedDeclarationsOptions
   get_placeholder_type?: () => string;
   get_function_type_name?: (name: string, mask: string) => string;
   get_function_parameter_placeholder_name?: (name: string) => string;
+  inline_return_type?: boolean;
 }
 
 /**
@@ -43,6 +45,7 @@ export function create_curried_types(
     get_function_parameter_placeholder_name = get_function_parameter_placeholder_name_default,
     get_selectable_kind_name,
     get_selectable_selector_name,
+    inline_return_type = inline_return_type_default,
   } = options;
 
   const is_placeholder = (value: dts.IType) =>
@@ -187,8 +190,9 @@ export function create_curried_types(
                 parameters: used_parameters,
                 return:
                   return_mask.split('').every(R.equals('1')) &&
-                  type_predicate_parameter !== null &&
-                  used_parameters.indexOf(type_predicate_parameter) !== -1
+                  (inline_return_type ||
+                    (type_predicate_parameter !== null &&
+                      used_parameters.indexOf(type_predicate_parameter) !== -1))
                     ? return_type
                     : dts.create_general_type({
                         name: return_type_declaration.name,
@@ -215,6 +219,11 @@ export function create_curried_types(
       }),
     );
   });
+
+  if (inline_return_type) {
+    // remove final_return_type_declaration (type $_111 = XXX)
+    type_declarations.splice(-1, 1);
+  }
 
   return type_declarations;
 }
