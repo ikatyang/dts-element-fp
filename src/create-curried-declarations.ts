@@ -6,6 +6,7 @@ import {
 import { create_various_curried_types } from './create-curried-various-types';
 import {
   get_placeholder_type_default,
+  inline_return_type_default,
   placeholder_default,
 } from './utils/constants';
 import { sort_signatures } from './utils/sort-signatures';
@@ -29,6 +30,7 @@ export function create_curried_declarations(
   const {
     get_placeholder_type = get_placeholder_type_default,
     placeholder = placeholder_default,
+    inline_return_type = inline_return_type_default,
   } = options;
 
   const is_placeholder = (value: dts.IType) =>
@@ -62,8 +64,11 @@ export function create_curried_declarations(
       }),
     }),
     ...sorted_type_declarations.filter(type_declaration => {
-      if (!placeholder) {
-        return /_1*?0*?$/.test(type_declaration.name);
+      if (inline_return_type && /_1+$/.test(type_declaration.name)) {
+        return false;
+      }
+      if (!placeholder && !/_1*?0*?$/.test(type_declaration.name)) {
+        return false;
       }
       return true;
     }),

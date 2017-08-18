@@ -188,20 +188,30 @@ export function create_curried_types(
               type: dts.create_function_type({
                 generics: used_parameters_generics,
                 parameters: used_parameters,
-                return:
-                  return_mask.split('').every(R.equals('1')) &&
-                  (inline_return_type ||
-                    (type_predicate_parameter !== null &&
-                      used_parameters.indexOf(type_predicate_parameter) !== -1))
-                    ? return_type
-                    : dts.create_general_type({
-                        name: return_type_declaration.name,
-                        generics: return_type_generics,
-                      }),
+                return: get_overload_return_type(),
               }),
             }),
           }),
         );
+
+        function get_overload_return_type() {
+          if (return_mask.split('').every(R.equals('1'))) {
+            if (type_predicate_parameter !== null) {
+              if (used_parameters.indexOf(type_predicate_parameter) !== -1) {
+                return return_type; // type_predicate: value is Type (matched parameter)
+              }
+              if (inline_return_type) {
+                return dts.boolean_type; // type_predicate: boolean (unmatched parameter)
+              }
+            } else if (inline_return_type) {
+              return return_type;
+            }
+          }
+          return dts.create_general_type({
+            name: return_type_declaration.name,
+            generics: return_type_generics,
+          });
+        }
       },
     );
 
@@ -219,11 +229,6 @@ export function create_curried_types(
       }),
     );
   });
-
-  if (inline_return_type) {
-    // remove final_return_type_declaration (type $_111 = XXX)
-    type_declarations.splice(-1, 1);
-  }
 
   return type_declarations;
 }

@@ -11,6 +11,18 @@ const test_cases = {
     function list<T, U>(fn: Morphism<T, U>, list: List<T>): U[];
     function functor<T, U>(fn: Morphism<T, U>, functor: Functor<T>): Functor<U>;
   `,
+  all_various: `
+    function string(str: string): string;
+    function list<T>(list: List<T>): T[];
+    function mixed<T>(list: string | List<T>): string | T[];
+  `,
+  type_predicate: `
+    function propIs<T, U extends {}, K extends string>(
+      constructor: Constructor<T>,
+      key: K,
+      object: U,
+    ): object is U & Record<K, T>;
+  `,
 };
 
 it('should transform correctly with type = FunctionType', () => {
@@ -48,6 +60,22 @@ it('should inline return type correctly with inline_return_type = true and type 
 it('should inline return type correctly with inline_return_type = true and type = Record<string, FunctionType>', () => {
   expect(
     emit_curried_declarations(test_cases.various, { inline_return_type: true }),
+  ).toMatchSnapshot();
+});
+
+it('should inline return type correctly with inline_return_type = true and type = FunctionType contains type predicate', () => {
+  expect(
+    emit_curried_declarations(test_cases.type_predicate, {
+      inline_return_type: true,
+    }),
+  ).toMatchSnapshot();
+});
+
+it('should inline return type correctly with inline_return_type = true and type = Record<string, FunctionType> contains all_various', () => {
+  expect(
+    emit_curried_declarations(test_cases.all_various, {
+      inline_return_type: true,
+    }),
   ).toMatchSnapshot();
 });
 
