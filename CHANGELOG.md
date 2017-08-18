@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/ikatyang/dts-element-fp/compare/v1.1.0...v1.1.1) (2017-08-18)
+
+
+### Bug Fixes
+
+* **inline_return_type:** incorrect output for typePredicate and all various type ([#21](https://github.com/ikatyang/dts-element-fp/issues/21)) ([617f55c](https://github.com/ikatyang/dts-element-fp/commit/617f55c))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/ikatyang/dts-element-fp/compare/v1.0.2...v1.1.0) (2017-08-18)
 
