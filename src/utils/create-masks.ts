@@ -9,5 +9,8 @@ import { left_pad } from './left-pad';
  */
 export const create_masks = (length: number) =>
   R.repeat(0, 2 ** length).map((_, index) =>
-    left_pad(index.toString(2), '0', length).split('').reverse().join(''),
+    left_pad(index.toString(2), '0', length)
+      .split('')
+      .reverse()
+      .join(''),
   );
