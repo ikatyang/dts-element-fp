@@ -51,6 +51,7 @@ export function create_curried_types(
   const is_placeholder = (value: dts.IType) =>
     dts.is_general_type(value) && value.name === get_placeholder_type();
 
+  // istanbul ignore next
   const { generics = [], parameters = [], return: return_type } = type;
 
   const type_predicate_parameter = dts.is_type_predicate(return_type)

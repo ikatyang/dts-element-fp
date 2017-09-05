@@ -20,6 +20,7 @@ export function create_various_curried_types(
   types: { [kind: string]: dts.IFunctionType },
   options: CreateCurriedDeclarationsOptions = {},
 ): dts.ITypeDeclaration[] {
+  // istanbul ignore next
   const {
     selectable = selectable_default,
     get_placeholder_type = get_placeholder_type_default,
