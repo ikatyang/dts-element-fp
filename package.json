@@ -30,7 +30,7 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "ramda": "^0.24.1"
+    "ramda": "^0.25.0"
   },
   "devDependencies": {
     "@types/jest": "21.1.2",
