@@ -33,7 +33,7 @@
     "ramda": "^0.25.0"
   },
   "devDependencies": {
-    "@types/jest": "21.1.4",
+    "@types/jest": "21.1.5",
     "@types/ramda": "ikatyang/types-ramda#e37c398",
     "dts-element": "2.2.1",
     "jest": "21.2.1",
