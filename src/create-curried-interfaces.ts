@@ -134,7 +134,7 @@ export function create_curried_interfaces(
           get_selectable_selector_name,
           is_placeholder,
         },
-      ),
+      ).reverse(),
     );
   });
 

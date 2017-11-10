@@ -41,7 +41,7 @@ export function sort_signatures(
         ),
       ),
     selectables,
-  );
+  ).reverse();
 
   return [
     ...sorted_normals.slice(0, -1),
