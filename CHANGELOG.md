@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.2"></a>
+## [1.1.2](https://github.com/ikatyang/dts-element-fp/compare/v1.1.1...v1.1.2) (2017-11-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ramda to v^0.25.0 ([cc904c2](https://github.com/ikatyang/dts-element-fp/commit/cc904c2))
+* **selectable-overloads:** put most general case at first ([#81](https://github.com/ikatyang/dts-element-fp/issues/81)) ([906b5a4](https://github.com/ikatyang/dts-element-fp/commit/906b5a4))
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/ikatyang/dts-element-fp/compare/v1.1.0...v1.1.1) (2017-08-18)
 
