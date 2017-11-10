@@ -25,7 +25,7 @@
     "prebuild": "rm -rf ./lib",
     "build": "tsc -p tsconfig.build.json",
     "predocs": "rm -rf ./docs",
-    "docs": "typedoc --out ./docs --mode file --exclude '{**/{utils,tests}/**/*,**/*.test.ts}' --excludeExternals --excludePrivate",
+    "docs": "typedoc  src/*.ts --out ./docs --mode file --excludeNotExported --excludeExternals --excludePrivate",
     "prerelease": "yarn run docs && git add ./docs --all && git commit -m 'docs: update documentation'",
     "release": "standard-version"
   },
