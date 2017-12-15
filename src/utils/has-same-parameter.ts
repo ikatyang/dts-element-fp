@@ -11,14 +11,13 @@ export const has_same_parameter = (
   function_type_2: dts.IFunctionType,
   parameter_index: number,
 ) => {
-  const [first, second] = [
-    function_type_1,
-    function_type_2,
-  ].map(function_type => {
-    const { parameters = [], generics = [] } = function_type;
-    const parameter_type = parameters[parameter_index].type!;
-    return { generics, parameter_type };
-  });
+  const [first, second] = [function_type_1, function_type_2].map(
+    function_type => {
+      const { parameters = [], generics = [] } = function_type;
+      const parameter_type = parameters[parameter_index].type!;
+      return { generics, parameter_type };
+    },
+  );
 
   if (!R.equals(first.parameter_type, second.parameter_type)) {
     // suppose type that looks different should have different meaning
