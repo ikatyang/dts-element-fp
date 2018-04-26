@@ -26,6 +26,7 @@ export function create_various_curried_types(
     get_placeholder_type = get_placeholder_type_default,
     get_selectable_kind_name,
     get_selectable_selector_name,
+    hoist_name,
   } = options;
 
   const is_placeholder = (value: dts.IType) =>
@@ -53,6 +54,18 @@ export function create_various_curried_types(
     ],
     [],
   );
+
+  const hoist_types_index =
+    hoist_name === undefined ? -1 : keys.indexOf(hoist_name);
+  const hoist_type_members =
+    hoist_types_index !== -1 &&
+    curried_types_declarations[hoist_types_index].reduce(
+      (a, b) => [
+        ...a,
+        ...((b.type as dts.IObjectType).members as dts.IObjectMember[]),
+      ],
+      [] as dts.IObjectMember[],
+    );
 
   const masks = create_masks(parameters_length);
 
@@ -174,7 +187,11 @@ export function create_various_curried_types(
           ] = function_type;
         } else {
           members.push(
-            member,
+            ...(index >= non_conflict_declarations.length ||
+            !hoist_type_members ||
+            hoist_type_members.indexOf(member) !== -1
+              ? [member]
+              : []),
             ...(selectable && origin_members.length > 1
               ? [mixed_type_declarations_selectables[index][member_index]]
               : []),

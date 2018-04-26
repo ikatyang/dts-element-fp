@@ -197,8 +197,6 @@ type $_functor_11<U> = Functor<U>;
 exports[`should remove non-hoist kind in non-conflict types and remove hoist kind in selectable types with hoist_name = string  and type = Record<string, FunctionType> contains all_various 1`] = `
 "declare const $: $_0;
 type $_0 = {
-    (str: string): $_string_1;
-    <T>(list: List<T>): $_list_1<T>;
     <$SEL extends \\"1\\", $KIND extends \\"mixed\\">(): <T>(list: string | List<T>) => $_mixed_1<T>;
     <$SEL extends \\"1\\", $KIND extends \\"list\\">(): <T>(list: List<T>) => $_list_1<T>;
     <$SEL extends \\"1\\", $KIND extends \\"string\\">(): (str: string) => $_string_1;
@@ -214,11 +212,7 @@ exports[`should remove non-hoist kind in non-conflict types and remove hoist kin
 "declare const $: $_00;
 type $_00 = {
     <T, U>(fn: Morphism<T, U>): $_10<T, U>;
-    <T>(_fn: PH, list: List<T>): $_list_01<T>;
-    <T>(_fn: PH, functor: Functor<T>): $_functor_01<T>;
     <T>(_fn: PH, target: List<T> | Functor<T>): $_mixed_01<T>;
-    <T, U>(fn: Morphism<T, U>, list: List<T>): $_list_11<U>;
-    <T, U>(fn: Morphism<T, U>, functor: Functor<T>): $_functor_11<U>;
     <$SEL extends \\"11\\", $KIND extends \\"mixed\\">(): <T, U>(fn: Morphism<T, U>, target: List<T> | Functor<T>) => $_mixed_11<U>;
     <$SEL extends \\"11\\", $KIND extends \\"functor\\">(): <T, U>(fn: Morphism<T, U>, functor: Functor<T>) => $_functor_11<U>;
     <$SEL extends \\"11\\", $KIND extends \\"list\\">(): <T, U>(fn: Morphism<T, U>, list: List<T>) => $_list_11<U>;
@@ -229,8 +223,6 @@ type $_00 = {
     <T, U>(fn: Morphism<T, U>, target: List<T> | Functor<T>): $_mixed_11<U>;
 };
 type $_10<T, U> = {
-    (list: List<T>): $_list_11<U>;
-    (functor: Functor<T>): $_functor_11<U>;
     <$SEL extends \\"1\\", $KIND extends \\"mixed\\">(): (target: List<T> | Functor<T>) => $_mixed_11<U>;
     <$SEL extends \\"1\\", $KIND extends \\"functor\\">(): (functor: Functor<T>) => $_functor_11<U>;
     <$SEL extends \\"1\\", $KIND extends \\"list\\">(): (list: List<T>) => $_list_11<U>;
