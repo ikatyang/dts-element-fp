@@ -11,6 +11,11 @@ const test_cases = {
     function list<T, U>(fn: Morphism<T, U>, list: List<T>): U[];
     function functor<T, U>(fn: Morphism<T, U>, functor: Functor<T>): Functor<U>;
   `,
+  various_mixed: `
+    function list<T, U>(fn: Morphism<T, U>, list: List<T>): U[];
+    function functor<T, U>(fn: Morphism<T, U>, functor: Functor<T>): Functor<U>;
+    function mixed<T, U>(fn: Morphism<T, U>, target: List<T> | Functor<T>): U[] | Functor<U>;
+  `,
   all_various: `
     function string(str: string): string;
     function list<T>(list: List<T>): T[];
@@ -75,6 +80,22 @@ it('should inline return type correctly with inline_return_type = true and type 
   expect(
     emit_curried_declarations(test_cases.all_various, {
       inline_return_type: true,
+    }),
+  ).toMatchSnapshot();
+});
+
+it('should remove non-hoist kind in non-conflict types and remove hoist kind in selectable types with hoist_name = string  and type = Record<string, FunctionType> contains various_mixed', () => {
+  expect(
+    emit_curried_declarations(test_cases.various_mixed, {
+      hoist_name: 'mixed',
+    }),
+  ).toMatchSnapshot();
+});
+
+it('should remove non-hoist kind in non-conflict types and remove hoist kind in selectable types with hoist_name = string  and type = Record<string, FunctionType> contains all_various', () => {
+  expect(
+    emit_curried_declarations(test_cases.all_various, {
+      hoist_name: 'mixed',
     }),
   ).toMatchSnapshot();
 });
