@@ -1035,11 +1035,11 @@ dotgitignore@^1.0.3:
     find-up "^2.1.0"
     minimatch "^3.0.4"
 
-dts-element@2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/dts-element/-/dts-element-2.2.1.tgz#3c3986813464082a16dc94c026114b6d26fb4f9f"
+dts-element@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/dts-element/-/dts-element-2.3.0.tgz#5f194943ecc20395c742b08dbcce9b0ddad95e0a"
   dependencies:
-    typescript "~2.4.1"
+    typescript "~2.8.1"
 
 duplexer@^0.1.1:
   version "0.1.1"
@@ -3729,13 +3729,9 @@ typescript@2.7.2:
   version "2.7.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.7.2.tgz#2d615a1ef4aee4f574425cdff7026edf81919836"
 
-typescript@2.8.3:
+typescript@2.8.3, typescript@~2.8.1:
   version "2.8.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.8.3.tgz#5d817f9b6f31bb871835f4edf0089f21abe6c170"
-
-typescript@~2.4.1:
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.4.2.tgz#f8395f85d459276067c988aa41837a8f82870844"
 
 uglify-js@^2.6:
   version "2.8.29"
