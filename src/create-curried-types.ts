@@ -34,9 +34,11 @@ export interface CreateCurriedDeclarationsOptions
 export function create_curried_types(
   name: string,
   type: dts.IFunctionType,
-  // istanbul ignore next
-  options: CreateCurriedDeclarationsOptions = {},
+  options?: CreateCurriedDeclarationsOptions,
 ): dts.ITypeDeclaration[] {
+  // istanbul ignore next
+  const $options: CreateCurriedDeclarationsOptions =
+    options !== undefined ? options : {};
   // istanbul ignore next
   const {
     selectable = selectable_default,
@@ -47,7 +49,7 @@ export function create_curried_types(
     get_selectable_kind_name,
     get_selectable_selector_name,
     inline_return_type = inline_return_type_default,
-  } = options;
+  } = $options;
 
   const is_placeholder = (value: dts.IType) =>
     dts.is_general_type(value) && value.name === get_placeholder_type();
