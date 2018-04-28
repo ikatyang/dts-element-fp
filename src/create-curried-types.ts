@@ -25,6 +25,7 @@ export interface CreateCurriedDeclarationsOptions
   get_function_type_name?: (name: string, mask: string) => string;
   get_function_parameter_placeholder_name?: (name: string) => string;
   inline_return_type?: boolean;
+  hoist_name?: string;
 }
 
 /**
