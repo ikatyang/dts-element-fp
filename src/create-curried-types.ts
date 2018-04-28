@@ -110,7 +110,9 @@ export function create_curried_types(
   const target_types = R.repeat(0, 2 ** parameters.length).map(
     (_, index, array) =>
       index === array.length - 1
-        ? dts.is_type_predicate(return_type) ? dts.boolean_type : return_type
+        ? dts.is_type_predicate(return_type)
+          ? dts.boolean_type
+          : return_type
         : dts.create_object_type({ members: [] }),
   );
 
