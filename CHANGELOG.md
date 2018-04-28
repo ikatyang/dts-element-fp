@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/ikatyang/dts-element-fp/compare/v1.1.2...v1.2.0) (2018-04-28)
+
+
+### Features
+
+* add `hoist_name` option ([#133](https://github.com/ikatyang/dts-element-fp/issues/133)) ([71be11e](https://github.com/ikatyang/dts-element-fp/commit/71be11e))
+
+
+
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/ikatyang/dts-element-fp/compare/v1.1.1...v1.1.2) (2017-11-10)
 
