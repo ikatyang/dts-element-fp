@@ -177,8 +177,8 @@ export function create_various_curried_types(
     }
     const repeated_function_types: { [name: string]: dts.IFunctionType } = {};
     const members: dts.IObjectMember[] = [];
-    object_type.members!.forEach(
-      (member: dts.IObjectMember, member_index, origin_members) => {
+    (object_type.members as dts.IObjectMember[]).forEach(
+      (member, member_index, origin_members) => {
         const function_type = (member.owned as dts.IFunctionDeclaration).type!;
         const function_return_type = function_type.return! as dts.IGeneralType;
         if (function_return_type.name in non_conflict_rebases) {
