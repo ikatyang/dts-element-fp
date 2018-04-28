@@ -60,38 +60,56 @@ type $_000 = {
     <T>(constructor: Constructor<T>): $_100<T>;
     <K extends string>(_constructor: PH, key: K): $_010<K>;
     <T, K extends string>(constructor: Constructor<T>, key: K): $_110<T, K>;
-    <U extends {}>(_constructor: PH, _key: PH, object: U): $_001<U>;
-    <U extends {}, K extends string>(_constructor: PH, key: K, object: U): $_011<U, K>;
-    <T, U extends {}>(constructor: Constructor<T>, _key: PH, object: U): $_101<T, U>;
-    <$SEL extends \\"111\\">(): <T, U extends {}, K extends string>(constructor: Constructor<T>, key: K, object: U) => object is U & Record<K, T>;
-    <$SEL extends \\"101\\">(): <T, U extends {}>(constructor: Constructor<T>, _key: PH, object: U) => $_101<T, U>;
-    <$SEL extends \\"011\\">(): <U extends {}, K extends string>(_constructor: PH, key: K, object: U) => $_011<U, K>;
-    <$SEL extends \\"001\\">(): <U extends {}>(_constructor: PH, _key: PH, object: U) => $_001<U>;
+    <U extends {
+    }>(_constructor: PH, _key: PH, object: U): $_001<U>;
+    <U extends {
+    }, K extends string>(_constructor: PH, key: K, object: U): $_011<U, K>;
+    <T, U extends {
+    }>(constructor: Constructor<T>, _key: PH, object: U): $_101<T, U>;
+    <$SEL extends \\"111\\">(): <T, U extends {
+    }, K extends string>(constructor: Constructor<T>, key: K, object: U) => object is U & Record<K, T>;
+    <$SEL extends \\"101\\">(): <T, U extends {
+    }>(constructor: Constructor<T>, _key: PH, object: U) => $_101<T, U>;
+    <$SEL extends \\"011\\">(): <U extends {
+    }, K extends string>(_constructor: PH, key: K, object: U) => $_011<U, K>;
+    <$SEL extends \\"001\\">(): <U extends {
+    }>(_constructor: PH, _key: PH, object: U) => $_001<U>;
     <$SEL extends \\"11\\">(): <T, K extends string>(constructor: Constructor<T>, key: K) => $_110<T, K>;
     <$SEL extends \\"01\\">(): <K extends string>(_constructor: PH, key: K) => $_010<K>;
     <$SEL extends \\"1\\">(): <T>(constructor: Constructor<T>) => $_100<T>;
-    <T, U extends {}, K extends string>(constructor: Constructor<T>, key: K, object: U): object is U & Record<K, T>;
+    <T, U extends {
+    }, K extends string>(constructor: Constructor<T>, key: K, object: U): object is U & Record<K, T>;
 };
 type $_100<T> = {
     <K extends string>(key: K): $_110<T, K>;
-    <U extends {}>(_key: PH, object: U): $_101<T, U>;
-    <$SEL extends \\"11\\">(): <U extends {}, K extends string>(key: K, object: U) => object is U & Record<K, T>;
-    <$SEL extends \\"01\\">(): <U extends {}>(_key: PH, object: U) => $_101<T, U>;
+    <U extends {
+    }>(_key: PH, object: U): $_101<T, U>;
+    <$SEL extends \\"11\\">(): <U extends {
+    }, K extends string>(key: K, object: U) => object is U & Record<K, T>;
+    <$SEL extends \\"01\\">(): <U extends {
+    }>(_key: PH, object: U) => $_101<T, U>;
     <$SEL extends \\"1\\">(): <K extends string>(key: K) => $_110<T, K>;
-    <U extends {}, K extends string>(key: K, object: U): object is U & Record<K, T>;
+    <U extends {
+    }, K extends string>(key: K, object: U): object is U & Record<K, T>;
 };
 type $_010<K extends string> = {
     <T>(constructor: Constructor<T>): $_110<T, K>;
-    <U extends {}>(_constructor: PH, object: U): $_011<U, K>;
-    <$SEL extends \\"11\\">(): <T, U extends {}>(constructor: Constructor<T>, object: U) => object is U & Record<K, T>;
-    <$SEL extends \\"01\\">(): <U extends {}>(_constructor: PH, object: U) => $_011<U, K>;
+    <U extends {
+    }>(_constructor: PH, object: U): $_011<U, K>;
+    <$SEL extends \\"11\\">(): <T, U extends {
+    }>(constructor: Constructor<T>, object: U) => object is U & Record<K, T>;
+    <$SEL extends \\"01\\">(): <U extends {
+    }>(_constructor: PH, object: U) => $_011<U, K>;
     <$SEL extends \\"1\\">(): <T>(constructor: Constructor<T>) => $_110<T, K>;
-    <T, U extends {}>(constructor: Constructor<T>, object: U): object is U & Record<K, T>;
+    <T, U extends {
+    }>(constructor: Constructor<T>, object: U): object is U & Record<K, T>;
 };
 type $_110<T, K extends string> = {
-    <U extends {}>(object: U): object is U & Record<K, T>;
+    <U extends {
+    }>(object: U): object is U & Record<K, T>;
 };
-type $_001<U extends {}> = {
+type $_001<U extends {
+}> = {
     <T>(constructor: Constructor<T>): $_101<T, U>;
     <K extends string>(_constructor: PH, key: K): $_011<U, K>;
     <$SEL extends \\"11\\">(): <T, K extends string>(constructor: Constructor<T>, key: K) => boolean;
@@ -99,10 +117,12 @@ type $_001<U extends {}> = {
     <$SEL extends \\"1\\">(): <T>(constructor: Constructor<T>) => $_101<T, U>;
     <T, K extends string>(constructor: Constructor<T>, key: K): boolean;
 };
-type $_101<T, U extends {}> = {
+type $_101<T, U extends {
+}> = {
     <K extends string>(key: K): boolean;
 };
-type $_011<U extends {}, K extends string> = {
+type $_011<U extends {
+}, K extends string> = {
     <T>(constructor: Constructor<T>): boolean;
 };
 "
