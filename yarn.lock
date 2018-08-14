@@ -1025,9 +1025,9 @@ dotgitignore@^1.0.3:
     find-up "^2.1.0"
     minimatch "^3.0.4"
 
-dts-element@2.3.2:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/dts-element/-/dts-element-2.3.2.tgz#7d19ff5d355f6fae8fa184f8800655e749a62078"
+dts-element@2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/dts-element/-/dts-element-2.3.3.tgz#c35411b6bf5bc95af1c314aeb2e0ec03329b73e3"
   dependencies:
     typescript "~2.8.1"
 
