@@ -48,10 +48,10 @@
   version "10.12.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.0.tgz#ea6dcbddbc5b584c83f06c60e82736d8fbb0c235"
 
-"@types/ramda@ikatyang/types-ramda#e37c398":
-  version "0.24.2"
-  uid e37c398e19ee3693f2e78fcc9294f83367218f62
-  resolved "https://codeload.github.com/ikatyang/types-ramda/tar.gz/e37c398e19ee3693f2e78fcc9294f83367218f62"
+"@types/ramda@ikatyang/types-ramda#97ae230":
+  version "0.24.3"
+  uid "97ae230c2214b56fa8dc593678b7ad2538e8f5a1"
+  resolved "https://codeload.github.com/ikatyang/types-ramda/tar.gz/97ae230c2214b56fa8dc593678b7ad2538e8f5a1"
 
 "@types/shelljs@0.7.8":
   version "0.7.8"

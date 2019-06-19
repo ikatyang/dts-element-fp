@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@types/jest": "21.1.10",
-    "@types/ramda": "ikatyang/types-ramda#e37c398",
+    "@types/ramda": "ikatyang/types-ramda#97ae230",
     "dts-element": "2.3.3",
     "jest": "21.2.1",
     "prettier": "1.12.1",
